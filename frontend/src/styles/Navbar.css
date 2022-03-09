@@ -1,6 +1,7 @@
 ul {
   display: flex;
   align-items: center;
+  /* place-content: space-between; */
   justify-content: space-around;
   position: fixed;
   width: 100%;
@@ -10,11 +11,13 @@ ul {
   top: 0;
   background-color: azure;
   margin-block-start: 0em;
-  margin-block-end: 0em;
-  padding-inline-start: 0px;
 }
 
 .link {
+  text-decoration: none;
+  list-style-type: none;
+}
+.link:link {
   text-decoration: none;
   list-style-type: none;
 }
