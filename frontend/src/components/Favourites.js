@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Navbar from "./Layout/Navbar";
+import SearchBox from "./Layout/SearchBox";
 
 function Favourites() {
   const [data, setData] = useState(null);
@@ -25,10 +26,11 @@ function Favourites() {
   return (
     <div>
       <Navbar />
+      <SearchBox />
       <div className="card">
         {data &&
-          data.map((item) => (
-            <div onClick={() => navigate(`/candles/${item.id}`)}>
+          data.map((item, index) => (
+            <div key={index} onClick={() => navigate(`/candles/${item.id}`)}>
               <div>
                 <img width="350" height="350" src={item.picture1} />
               </div>
