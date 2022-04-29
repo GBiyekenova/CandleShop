@@ -1,0 +1,19 @@
+.card {
+  display: flex;
+  flex-direction: row;
+}
+
+.ctr {
+  margin: 0.5rem auto;
+  width: fit-content;
+}
+h2 {
+  font-weight: 550;
+}
+
+.line {
+  border-top: 0.15rem grey solid;
+  width: 85%;
+  margin: 0 auto;
+  
+}
