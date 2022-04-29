@@ -28,18 +28,18 @@ function Favourites() {
       <Navbar />
       <SearchBox />
       <div className="card">
-        {data &&
+        {data && data.length > 0 ?
           data.map((item, index) => (
             <div key={index} onClick={() => navigate(`/candles/${item.id}`)}>
               <div>
                 <img width="350" height="350" src={item.picture1} />
               </div>
-              <div>
-                <h1>{item.name}</h1>
-                <div>${item.price}</div>
+              <div className="line">
+                <h2 className="ctr">{item.name}</h2>
+                <div className="ctr">${item.price}</div>
               </div>
             </div>
-          ))}
+          )) : "You have no favorites yet!"}
       </div>
     </div>
   );

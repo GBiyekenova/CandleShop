@@ -55,21 +55,20 @@ function Post() {
 
   const addToCart = (itemToAdd) => {
     console.log("Add to cart!");
-    console.log(itemToAdd)
+    console.log(itemToAdd);
     let inCart = false;
-    
-    let updatedCart;
-    updatedCart = cart.map((i) => {
+
+    // let updatedCart;
+    let updatedCart = cart.map((i) => {
       if (i.id === itemToAdd.id) {
         inCart = true;
         i.amount += 1;
-        
       }
       return i;
     });
     if (inCart === false) {
-      console.log(itemToAdd)
-      updatedCart = [...cart, {...itemToAdd, amount: 1}];
+      console.log(itemToAdd);
+      updatedCart = [...cart, { ...itemToAdd, amount: 1 }];
     }
     setCart([...updatedCart]);
   };
@@ -81,15 +80,30 @@ function Post() {
         <div className="product-block">
           <div className="product-info">
             <h1>{data.name}</h1>
-            <div>{data.description}</div>
-            <div>Price: {data.price}</div>
-            <div>{data.quantity} in stock</div>
-            <button onClick={() => addToCart(data)}>Add To Cart</button>
-            {data.is_favourite ? (
-              <button onClick={removeFromFav}>Remove From Favourites</button>
-            ) : (
-              <button onClick={addToFav}>Add To Favourites</button>
-            )}
+            <p>{data.description}</p>
+            <div className="price">${data.price}</div>
+            <div>
+              {data.quantity > 3 ? (
+                <div>In stock</div>
+              ) : (
+                <div>A few left in stock</div>
+              )}
+            </div>
+            <div className="btn-btn">
+              <div>
+                {data.is_favourite ? (
+                  <button className="btn" onClick={removeFromFav}>
+                    Remove From Favourites
+                  </button>
+                ) : (
+                  <button className="btn" onClick={addToFav}>Add To Favourites</button>
+                )}
+              </div>
+
+              <button className="btn cart" onClick={() => addToCart(data)}>
+                Add To Cart
+              </button>
+            </div>
           </div>
 
           <div className="images">
