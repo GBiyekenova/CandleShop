@@ -5,8 +5,9 @@ import axios from "axios";
 
 import { CartContext } from "./CartContext";
 
-import Navbar from "./Layout/Navbar";
 import "../styles/Post.css";
+import Navbar from "./Layout/Navbar";
+import Footer from "./Layout/Footer";
 
 function Post() {
   const [cart, setCart] = useContext(CartContext);
@@ -76,8 +77,10 @@ function Post() {
   return (
     <div>
       <Navbar />
+      <a id="back-btn" href="http://localhost:3000/candles">Back</a>
       {data && (
         <div className="product-block">
+          <div className="product-desc"> 
           <div className="product-info">
             <h1>{data.name}</h1>
             <p>{data.description}</p>
@@ -100,10 +103,12 @@ function Post() {
                 )}
               </div>
 
-              <button className="btn cart" onClick={() => addToCart(data)}>
+              <button className="btn add-to-cart" onClick={() => addToCart(data)}>
                 Add To Cart
               </button>
             </div>
+          </div>
+
           </div>
 
           <div className="images">
@@ -113,6 +118,7 @@ function Post() {
           </div>
         </div>
       )}
+      <Footer/>
     </div>
   );
 }
