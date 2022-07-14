@@ -7,6 +7,7 @@ import Navbar from "./Layout/Navbar";
 
 import "../styles/AllPostings.css";
 import SearchBox from "./Layout/SearchBox";
+import Footer from "./Layout/Footer";
 
 function AllPostings() {
   const [data, setData] = useState(null);
@@ -32,7 +33,7 @@ function AllPostings() {
       <div className="card">
         {data &&
           data.map((item, index) => (
-            <div key={index} onClick={() => navigate(`/candles/${item.id}`)}>
+            <div className="mr-b" key={index} onClick={() => navigate(`/candles/${item.id}`)}>
               <div>
                 <img width="350" height="350" src={item.picture1} />
                 {/* <img width="500px" height="500px" src={item.picture2} />
@@ -45,6 +46,7 @@ function AllPostings() {
             </div>
           ))}
       </div>
+      <Footer />
     </div>
   );
 }
