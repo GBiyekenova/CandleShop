@@ -4,7 +4,7 @@
   /* justify-content: center; */
   align-items: flex-end;
   /* float: right; */
-  flex: 50%;
+  /* flex: 50%; */
   /* margin-right: 3em; */
   width: 50%;
   margin: 6em 3em;
@@ -19,14 +19,23 @@ img {
   /* justify-content: center; */
 }
 
+.product-desc {
+  width: 50%;
+  bottom: 50vh;
+  margin-bottom: 200px;
+}
 .product-info {
   /* flex: 50%; */
   /* display: block; */
-  width: 50%;
-  position: fixed;
+  width: 100%;
+  position: sticky;
   top: 25%;
-  left: 2em;
+  left: 5em;
+  bottom: 20%;
+  padding-bottom: 30vh;
+  margin-left: 2em;
 }
+
 
 .btn {
   font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
@@ -41,7 +50,7 @@ img {
   color: white;
 }
 
-.cart {
+.add-to-cart {
   width: 400px;
   height: 50px;
 }
@@ -53,4 +62,9 @@ img {
   font-weight: 600;
   font-size: larger;
   color: rgb(93, 87, 87);
+}
+#back-btn {
+  position: relative;
+  left: 2.5vw;
+  top: 15vh;
 }
