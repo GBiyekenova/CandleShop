@@ -17,3 +17,12 @@ h2 {
   margin: 0 auto;
   
 }
+.mr-b {
+  margin: 0 0 30vh 0;
+}
+
+.pg-name {
+  position: relative;
+  top: 5px;
+  left: 3em;
+}
