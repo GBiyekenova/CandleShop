@@ -5,6 +5,7 @@ import axios from "axios";
 
 import Navbar from "./Layout/Navbar";
 import SearchBox from "./Layout/SearchBox";
+import Footer from "./Layout/Footer";
 
 function Favourites() {
   const [data, setData] = useState(null);
@@ -16,7 +17,7 @@ function Favourites() {
       .then((response) => {
         console.log("response");
         console.log(response.data.data);
-        setData(response.data.data);
+        setData(response.data.data);  
       })
       .catch((error) => {
         console.log("ERROR", error);
@@ -27,10 +28,11 @@ function Favourites() {
     <div>
       <Navbar />
       <SearchBox />
+      <div className="pg-name">Your Favourites</div>
       <div className="card">
         {data && data.length > 0 ?
           data.map((item, index) => (
-            <div key={index} onClick={() => navigate(`/candles/${item.id}`)}>
+            <div className="mr-b" key={index} onClick={() => navigate(`/candles/${item.id}`)}>
               <div>
                 <img width="350" height="350" src={item.picture1} />
               </div>
@@ -39,8 +41,9 @@ function Favourites() {
                 <div className="ctr">${item.price}</div>
               </div>
             </div>
-          )) : "You have no favorites yet!"}
+          )) : <div className="pg-name">You have no favorites yet!</div>}
       </div>
+      <Footer />
     </div>
   );
 }
