@@ -18,16 +18,22 @@ function Navbar() {
 
   return (
     <ul>
-      <li className="link">
-        <Link to="/candles">Candle</Link>
+      <li id="logo" className="link" >
+        <Link to="/candles">Candl</Link>
       </li>
+      <li className="link">
+        <Link to="/candles">Shop</Link>
+      </li>
+      <div className="float-right">
       <li className="link">
         <Link to="/favourites"><FavoriteBorderIcon /></Link>
       </li>
       <li className="link">
       
-        <Link to="/cart"> <ShoppingCartIcon />({cart ? cartNum : 0})</Link>
+        <Link to="/cart"> <ShoppingCartIcon />({cartCount ? cartNum : 0})</Link>
       </li>
+
+      </div>
     </ul>
   );
 }
