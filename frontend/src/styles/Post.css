@@ -1,3 +1,29 @@
+.add-to-cart {
+  width: 400px;
+  height: 50px;
+}
+#back-btn {
+  position: relative;
+  left: 2.5vw;
+  top: 15vh;
+}
+.btn {
+  font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  font-size: 15px;
+  text-transform: uppercase;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  border-radius: 10px;
+  border: 2px solid rgb(255, 255, 255);
+  color: white;
+}
+
+.btn-btn {
+  flex-direction: column;
+  margin: 2rem 0;
+}
 .images {
   display: flex;
   flex-direction: column;
@@ -35,36 +61,12 @@ img {
   padding-bottom: 30vh;
   margin-left: 2em;
 }
-
-
-.btn {
-  font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 20px;
-  font-size: 15px;
-  text-transform: uppercase;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  border: 2px solid rgb(255, 255, 255);
-  color: white;
-}
-
-.add-to-cart {
-  width: 400px;
-  height: 50px;
-}
-.btn-btn {
-  flex-direction: column;
-  margin: 2rem 0;
-}
 .price {
   font-weight: 600;
   font-size: larger;
   color: rgb(93, 87, 87);
 }
-#back-btn {
-  position: relative;
-  left: 2.5vw;
-  top: 15vh;
+.red {
+  /* background-color: red; */
+  color: red;
 }
