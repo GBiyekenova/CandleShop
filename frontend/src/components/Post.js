@@ -3,6 +3,8 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+
 import { CartContext } from "./CartContext";
 
 import "../styles/Post.css";
@@ -77,38 +79,45 @@ function Post() {
   return (
     <div>
       <Navbar />
-      <a id="back-btn" href="http://localhost:3000/candles">Back</a>
       {data && (
         <div className="product-block">
-          <div className="product-desc"> 
-          <div className="product-info">
-            <h1>{data.name}</h1>
-            <p>{data.description}</p>
-            <div className="price">${data.price}</div>
-            <div>
-              {data.quantity > 3 ? (
-                <div>In stock</div>
-              ) : (
-                <div>A few left in stock</div>
-              )}
-            </div>
-            <div className="btn-btn">
+          {/* <div className="product-desc">  */}
+          <div style={{ position: "relative", width: "50%" }}>
+            <a id="back-btn" href="http://localhost:3000/candles">
+              Back
+            </a>
+            <div className="product-info">
+              <h1>{data.name}</h1>
+              <p>{data.description}</p>
+              <div className="price">${data.price}</div>
               <div>
-                {data.is_favourite ? (
-                  <button className="btn" onClick={removeFromFav}>
-                    Remove From Favourites
-                  </button>
+                {data.quantity > 3 ? (
+                  <div>In stock</div>
                 ) : (
-                  <button className="btn" onClick={addToFav}>Add To Favourites</button>
+                  <div>A few left in stock</div>
                 )}
               </div>
+              <div className="btn-btn">
+                <div>
+                  {data.is_favourite ? (
+                    <button className="btn red" onClick={removeFromFav}>
+                      <FavoriteBorderIcon />
+                    </button>
+                  ) : (
+                    <button className="btn" onClick={addToFav}>
+                      <FavoriteBorderIcon />
+                    </button>
+                  )}
+                </div>
 
-              <button className="btn add-to-cart" onClick={() => addToCart(data)}>
-                Add To Cart
-              </button>
+                <button
+                  className="btn add-to-cart"
+                  onClick={() => addToCart(data)}
+                >
+                  Add To Cart
+                </button>
+              </div>
             </div>
-          </div>
-
           </div>
 
           <div className="images">
@@ -118,7 +127,7 @@ function Post() {
           </div>
         </div>
       )}
-      <Footer/>
+      <Footer />
     </div>
   );
 }
