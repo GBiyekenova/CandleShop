@@ -9,6 +9,26 @@ import { CartContext } from "./CartContext";
 import Footer from "./Layout/Footer";
 // import useLocalStorage from "./useLocalStorage";
 
+// import styled from "styled-components";
+
+
+// const Container = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 90vh
+// `
+// const Button = styled.button`
+//   min-width:  100px;
+//   padding: 16px 32px;
+//   border-radius: 4px;
+//   border: none;
+//   background: #141414;
+//   color: #fff;
+//   font-size: 24px;
+//   cursor: pointer;
+// `
+
 function Cart() {
   const [cart, setCart] = useContext(CartContext);
 
@@ -75,11 +95,14 @@ function Cart() {
             ))
           : "Your cart is empty!"}
         <form id="checkout" action="/create-checkout-session" method="POST">
-          <button className="btn" type="submit">
+          <button id="checkout-btn" type="submit">
             CHECKOUT
           </button>
         </form>
       </div>
+      {/* <Container>
+        <Button>Modal</Button>
+      </Container> */}
       <Footer />
     </div>
   );
