@@ -1,0 +1,44 @@
+#checkout {
+  width: 50px;
+  height: 10px;
+  margin: 400px auto;
+
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+}
+
+.ctr {
+  margin: 0.5rem auto;
+  width: fit-content;
+}
+h2 {
+  font-weight: 550;
+}
+
+.line {
+  border-top: 0.15rem grey solid;
+  width: 85%;
+  margin: 0 auto;
+  
+}
+
+.cart-btn {
+  display: flex;
+  flex-direction: row;
+}
+
+#checkout-btn {
+  font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  font-size: 15px;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  border: 2px solid rgb(255, 255, 255);
+  color: white;
+}
