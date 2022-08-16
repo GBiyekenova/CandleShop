@@ -19,6 +19,7 @@ h2 {
 }
 .mr-b {
   margin: 0 0 30vh 0;
+  cursor: pointer;
 }
 
 .pg-name {
