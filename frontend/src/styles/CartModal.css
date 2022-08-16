@@ -1,0 +1,29 @@
+
+
+.modalBackground {
+  width: 10vw;
+  height: 100vh;
+  background-color: rgba(200, 200, 200);
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-delay: 0s;
+}
+
+.modalContainer {
+  width: 500px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  top: 0;
+}
