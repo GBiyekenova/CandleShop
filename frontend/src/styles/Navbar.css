@@ -39,20 +39,12 @@ ul {
   font-weight: 300;
 }
 
-/* .float-right {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90px;
-  position: relative;
-  left: 5px;
-} */
 .float-right {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* width: 90px; */
-  width: 100%;
+  width: 90px;
+  /* width: 100%; */
   position: relative;
   left: 5px;
 }
