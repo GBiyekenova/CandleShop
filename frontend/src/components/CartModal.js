@@ -45,38 +45,52 @@ const CartModal = ({ closeModal }) => {
   return (
     <div className="modalBackground">
       <div className="modalContainer">
-
         <div className="modal-header">
-          <div>Cart</div>
-          <div>Quantity</div>
+          <ul>Cart</ul>
+          {cart &&
+            cart.length > 0 &&
+            cart.map((item, index) => (
+              <li>
+                <div key={index}>
+                  <div onClick={() => navigate(`/candles/${item.id}`)}>
+                    <div>
+                      <img width="100" height="100" src={item.picture1} />
+                    </div>
+                    <h1 className="ctr">{item.name}</h1>
+                  </div>
+                </div>
+              </li>
+            ))}
+          <ul>Quantity</ul>
+          {cart &&
+            cart.length > 0 &&
+            cart.map((item) => (
+              <li>
+                <button onClick={() => increase(item.id)}>+</button>
+                <div>{item.amount}</div>
+                <button onClick={() => decrease(item.id)}>-</button>
+                <button onClick={() => removeFromCart(item)}>REMOVE</button>
+              </li>
+            ))}
           <button
-          id="exit-btn"
+            id="exit-btn"
             onClick={() => {
               closeModal(false);
             }}
           >
             X
           </button>
-
         </div>
         <div className="card">
           {cart && cart.length > 0
             ? cart.map((item, index) => (
                 <div key={index}>
                   <div onClick={() => navigate(`/candles/${item.id}`)}>
-                    {/* <div>
-                      <img width="350" height="350" src={item.picture1} />
-                    </div> */}
-                    <div className="line">
-                      <h1 className="ctr">{item.name}</h1>
-                      <div className="ctr">${item.price}</div>
+                    <div>
+                      <img width="100" height="100" src={item.picture1} />
                     </div>
-                  </div>
-                  <div className="ctr cart-btn">
-                    <button onClick={() => increase(item.id)}>+</button>
-                    <div>{item.amount}</div>
-                    <button onClick={() => decrease(item.id)}>-</button>
-                    <button onClick={() => removeFromCart(item)}>REMOVE</button>
+                    <h1 className="ctr">{item.name}</h1>
+                    <div className="ctr">${item.price}</div>
                   </div>
                 </div>
               ))
