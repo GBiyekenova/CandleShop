@@ -25,7 +25,8 @@ ul {
     text-decoration-style: initial;
     text-decoration-color: initial;
 }
-.link:link {
+
+.link a {
   text-decoration: none;
   list-style-type: none;
   text-decoration-line: none;
