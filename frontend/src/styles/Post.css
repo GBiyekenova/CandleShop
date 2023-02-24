@@ -2,6 +2,7 @@
   width: 200px;
   height: 50px;
   border: 1px solid gray;
+  cursor: pointer;
 }
 #back-btn {
   position: relative;
@@ -71,4 +72,5 @@ img {
 .red {
   /* background-color: red; */
   color: red;
+  cursor: pointer;
 }
