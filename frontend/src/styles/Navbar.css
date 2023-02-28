@@ -33,6 +33,15 @@ ul {
 
 }
 
+.link a :visited {
+  /* color: greenyellow; */
+  text-decoration: underline;
+}
+
+.link :active {
+  color: greenyellow;
+}
+
 #logo {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: xx-large;
