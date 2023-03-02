@@ -8,11 +8,22 @@ function SearchBox() {
 
   return (
     <div className="div-control">
-      <input
-        
+      {/* <input
         placeholder="Type to search..."
         onChange={(event) => setSearchValue(event.target.value)}
-      ></input>
+      ></input> */}
+      <form action="/" method="get">
+        <label htmlFor="header-search">
+            <span className="visually-hidden">Search candles</span>
+        </label>
+        <input
+            type="text"
+            id="header-search"
+            placeholder="Search candles"
+            name="s" 
+        />
+        <button type="submit">Search</button>
+    </form>
     </div>
   );
 }
