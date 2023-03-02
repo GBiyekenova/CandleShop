@@ -20,7 +20,7 @@ function Navbar() {
   return (
     <ul>
       <li id="logo" className="link">
-        <Link to="/candles">Candl</Link>
+        <Link to="/">Candl</Link>
       </li>
       <li className="link">
         <Link to="/candles">Shop</Link>
