@@ -69,8 +69,7 @@ function Cart() {
 
   return (
     <div>
-      <Navbar />
-      <SearchBox />
+      {/* <Navbar />
       <div className="card">
         {cart && cart.length > 0
           ? cart.map((item, index) => (
@@ -103,7 +102,7 @@ function Cart() {
       {/* <Container>
         <Button>Modal</Button>
       </Container> */}
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }
