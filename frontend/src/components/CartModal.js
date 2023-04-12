@@ -45,8 +45,10 @@ const CartModal = ({ closeModal }) => {
   return (
     <div className="modalBackground">
       <div className="modalContainer">
+          <div>Cart</div> <br/>
         <div className="modal-header">
-          <div>Cart</div>
+          <div>Products</div>
+          <div>Price</div>
           <div>Quantity</div>
           <div>Order Summary</div>
           <button
@@ -64,22 +66,24 @@ const CartModal = ({ closeModal }) => {
             {cart && cart.length > 0
               ? cart.map((item, index) => (
                   <div key={index}>
-                    <div onClick={() => navigate(`/candles/${item.id}`)}>
+                    <tr onClick={() => navigate(`/candles/${item.id}`)}>
                       {/* <div> */}
-                      <img width="100" height="100" src={item.picture1} />
-                      {/* </div> */}
-                      <h4>{item.name}</h4>
-                      <div>${item.price}</div>
-                    </div>
+                        <td>
+                          <img width="100" height="100" src={item.picture1} />
+                        </td>
+                        {/* </div> */}
+                        <td>{item.name}</td>
+                        <td>${item.price}</td>
+                    </tr>
 
-                    <div className="ctr cart-btn">
+                    <tr >{/*  className="ctr cart-btn" */}
                       <button onClick={() => increase(item.id)}>+</button>
                       <div>{item.amount}</div>
                       <button onClick={() => decrease(item.id)}>-</button>
                       <button onClick={() => removeFromCart(item)}>
                         REMOVE
                       </button>
-                    </div>
+                    </tr>
                   </div>
                 ))
               : "Your cart is empty!"}
@@ -98,7 +102,6 @@ const CartModal = ({ closeModal }) => {
   );
 };
 export default CartModal;
-
 
 // function CartModal(props) {
 //   const [activeTab, setActiveTab] = useState('quantity');
