@@ -17,7 +17,7 @@ display: inline-flex;
 .modal-header {
   padding: 10px;
   display: inline-grid;
-  grid-template-columns: 500px 50px 600px 10px;
+  grid-template-columns: 300px 50px 600px 180px 10px;
   grid-column-gap: 60px;
 
 }
