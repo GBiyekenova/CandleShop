@@ -72,13 +72,13 @@ const CartModal = ({ closeModal }) => {
             {cart && cart.length > 0
               ? cart.map((item, index) => (
                   <div key={index}>
-                    <tr onClick={() => navigate(`/candles/${item.id}`)} id="product-info">
-                      <td>
-                        <img width="100" height="100" src={item.picture1} />
-                        <div>{item.name}</div>
-                      </td>
-                      <td>${item.price}</td>
-                      <td>
+                    <div onClick={() => navigate(`/candles/${item.id}`)} id="product-info">
+                      <div className="lft-img">
+                        <img className="cart-img" width="100" height="100" src={item.picture1} />
+                        <div id="product-name">{item.name}</div>
+                      </div>
+                      <div id="price">${item.price}</div>
+                      <div id="inc-dec">
                        {/*  className="ctr cart-btn" */}
                       <button onClick={() => increase(item.id)}>+</button>
                       <div>{item.amount}</div>
@@ -86,8 +86,8 @@ const CartModal = ({ closeModal }) => {
                       <button onClick={() => removeFromCart(item)}>
                         REMOVE
                       </button>
-                      </td>
-                    </tr>
+                      </div>
+                    </div>
                   </div>
                 ))
               : "Your cart is empty!"}
