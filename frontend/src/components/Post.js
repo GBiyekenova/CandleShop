@@ -121,9 +121,9 @@ function Post() {
           </div>
 
           <div className="images">
-            <img width="500px" height="500px" src={data.picture1} />
-            <img width="500px" height="500px" src={data.picture2} />
-            <img width="500px" height="500px" src={data.picture3} />
+            <img className="img" width="500px" height="500px" src={data.picture1} />
+            <img className="img" width="500px" height="500px" src={data.picture2} />
+            <img className="img" width="500px" height="500px" src={data.picture3} />
           </div>
         </div>
       )}
