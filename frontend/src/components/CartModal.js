@@ -79,7 +79,7 @@ const CartModal = ({ closeModal }) => {
                       </div>
                       <div id="price">${item.price}</div>
                       <div id="inc-dec">
-                       {/*  className="ctr cart-btn" */}
+                        {/* className="ctr cart-btn" */}
                       <button onClick={() => increase(item.id)}>+</button>
                       <div>{item.amount}</div>
                       <button onClick={() => decrease(item.id)}>-</button>
