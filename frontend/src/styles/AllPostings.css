@@ -14,11 +14,11 @@ h2 {
 .line {
   border-top: 0.15rem grey solid;
   width: 85%;
-  margin: 0 auto;
+  margin: 1em auto;
   
 }
 .mr-b {
-  margin: 0 0 30vh 0;
+  margin: 1em 0em 30vh 4em;
   cursor: pointer;
 }
 
