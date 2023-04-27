@@ -72,28 +72,69 @@ const CartModal = ({ closeModal }) => {
             {cart && cart.length > 0
               ? cart.map((item, index) => (
                   <div key={index}>
-                    <div onClick={() => navigate(`/candles/${item.id}`)} id="product-info">
+                    <div
+                      onClick={() => navigate(`/candles/${item.id}`)}
+                      id="product-info"
+                    >
                       <div className="lft-img">
-                        <img className="cart-img" width="100" height="100" src={item.picture1} />
+                        <img
+                          className="cart-img"
+                          width="100"
+                          height="100"
+                          src={item.picture1}
+                        />
                         <div id="product-name">{item.name}</div>
                       </div>
                       <div id="price">${item.price}</div>
                       <div id="inc-dec">
                         {/* className="ctr cart-btn" */}
-                      <button onClick={() => increase(item.id)}>+</button>
-                      <div>{item.amount}</div>
-                      <button onClick={() => decrease(item.id)}>-</button>
-                      <button onClick={() => removeFromCart(item)}>
-                        REMOVE
-                      </button>
+                        <button onClick={() => increase(item.id)}>+</button>
+                        <div>{item.amount}</div>
+                        <button onClick={() => decrease(item.id)}>-</button>
+                        <button onClick={() => removeFromCart(item)}>
+                          REMOVE
+                        </button>
                       </div>
                     </div>
                   </div>
                 ))
               : "Your cart is empty!"}
           </div>
+          <div className="right-crt">
+            <div id="delivery-title">
+              <div>
+                <h3>Standard Delivery</h3>
+                <span>FREE</span>
+              </div>
+              <div id="delivery-icon">Banner</div>
+            </div>
+            <div>
+              <span>
+                Same Day Delivery, Pickup in Store, and more delivery options
+                available on Checkout.
+              </span>
+            </div>
+          </div>
 
-          <div className="right">
+          <div className="total">
+            <tbody >
+              <tr>
+                <th>Sub Total</th>
+                <td>CA $20.00</td>
+              </tr>
+              <tr>
+                <th>Shipping</th>
+                <td>CA $20.00</td>
+              </tr>
+              <tr>
+                <th>HST Tax</th>
+                <td>CA $20.00</td>
+              </tr>
+              <tr>
+                <th>Estimated Total</th>
+                <td>CA $20.00</td>
+              </tr>
+            </tbody>
             <form id="checkout" action="/create-checkout-session" method="POST">
               <button id="checkout-btn" type="submit">
                 CHECKOUT
