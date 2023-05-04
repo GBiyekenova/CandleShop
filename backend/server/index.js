@@ -1,8 +1,17 @@
+//if (process.env.NODE_ENV !== "production") {
+require("dotenv").config();
+//}
 const express = require("express");
 const pg = require("pg");
 const PORT = process.env.PORT || 3001;
 
 const app = express();
+app.use(express.json());
+
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
+
+const stripe = require("stripe")(stripeSecretKey);
 
 /* connect to DBeaver Database */
 const conString =
@@ -12,14 +21,90 @@ const conString =
 const client = new pg.Client(conString);
 
 client.connect(function (err) {
-  console.log("database");
+  console.log("connected to database");
   if (err) {
     return console.error("could not connect to postgres", err);
   }
 });
 /* connect to DBeaver Database */
 
-//Get a candle by Id
+app.post("/cart/itemId", (req, res) => {
+  const itemId = parseInt(req.body.itemId);
+  console.log(itemId);
+  client.query(
+    `SELECT itemss.price FROM itemss WHERE id = $1;`,
+    [itemId],
+    function (err, result) {
+      if (err) {
+        return console.error("error running query", err);
+      }
+      console.log("result.rows");
+      console.log(result.rows[0]);
+      res.json({ data: result.rows[0] });
+    }
+  );
+});
+
+app.use(express.static('public'));
+
+const YOUR_DOMAIN = 'http://localhost:4242';
+
+
+app.post('/create-checkout-session', async (req, res) => {
+  const {cart} = req.body;
+  console.log("cart", cart)
+  let lineItems = [];
+  
+  cart.map((item) => {
+    lineItems.push({
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: item.name,
+        },
+        unit_amount: +(item.price.replace(".", "")),
+      },
+      quantity: item.amount,
+    })
+    return;
+  })
+
+  console.log("lineItems");
+  console.log(lineItems);
+  const session = await stripe.checkout.sessions.create({
+    line_items: lineItems,
+    // [
+    //   {
+    //     price_data: {
+    //       currency: 'usd',
+    //       product_data: {
+    //         name: 'T-shirt',
+    //       },
+    //       unit_amount: 2000,
+    //     },
+    //     quantity: 2,
+    //   },
+    //   {
+    //     price_data: {
+    //       currency: 'usd',
+    //       product_data: {
+    //         name: 'Candle',
+    //       },
+    //       unit_amount: 4050,
+    //     },
+    //     quantity: 3,
+    //   },
+    // ],
+    mode: 'payment',
+    success_url: 'http://localhost:4242/success',
+    cancel_url: 'http://localhost:4242/cancel',
+  });
+console.log("session",  session)
+  res.json({url: session.url});
+  // res.redirect(303, session.url);
+});
+
+// Get a candle by Id
 app.get("/candles/:id", (req, res) => {
   console.log("GET /candles/ITEMID");
   const itemID = Number(req.params.id);
@@ -64,18 +149,41 @@ app.get("/favourites", (req, res) => {
   );
 });
 
-app.post("/candles/:id", (req, res) => {
-  console.log("GET /candles/:itemId")
-  const itemID = Number(req.params.id);
-  client.query(`UPDATE itemss SET is_favourite = $1 WHERE id = $2;`, [true, itemID], function(err, result) {
-    if(err) {
-      return console.error('error running query', err);
+app.post("/candles/itemId", (req, res) => {
+  console.log("POST CALL");
+  const itemId = parseInt(req.body.itemId);
+  console.log(itemId);
+  client.query(
+    `UPDATE itemss SET is_favourite = $1 WHERE id = $2 RETURNING *;`,
+    [true, itemId],
+    function (err, result) {
+      if (err) {
+        return console.error("error running query", err);
+      }
+      console.log("result.rows");
+      console.log(result.rows[0]);
+      res.json({ data: result.rows[0] });
     }
-    console.log(result.rows);
-    res.json({data: result.rows})
-  })
+  );
+});
 
-})
+app.post("/candles/remove", (req, res) => {
+  console.log("POST CALL");
+  const itemId = parseInt(req.body.itemId);
+  console.log(itemId);
+  client.query(
+    `UPDATE itemss SET is_favourite = $1 WHERE id = $2 RETURNING *;`,
+    [false, itemId],
+    function (err, result) {
+      if (err) {
+        return console.error("error running query", err);
+      }
+      console.log("result.rows");
+      console.log(result.rows[0]);
+      res.json({ data: result.rows[0] });
+    }
+  );
+});
 
 app.listen(PORT, () => {
   console.log(`Server is listening on ${PORT}`);
