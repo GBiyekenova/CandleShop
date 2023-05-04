@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 // import styled from "styled-components";
 import "../styles/CartModal.css";
 
@@ -42,6 +43,16 @@ const CartModal = ({ closeModal }) => {
     });
     setCart(currectCart);
   };
+console.log(cart)
+  const checkout = (cart) => {
+    axios.post('/create-checkout-session', {cart}).then((response) => {
+      console.log("SUCCESS", response);
+      window.location.href=(response.data.url);
+    })
+    .catch((err) => {
+      console.log("ERROR", err)
+    })
+  }
   return (
     <div
       className="modalBackground"
@@ -116,8 +127,8 @@ const CartModal = ({ closeModal }) => {
             </div>
           </div>
 
-          <div className="total">
-            <tbody >
+          {/* <div className="total"> */}
+            <tbody className="total">
               <tr>
                 <th>Sub Total</th>
                 <td>CA $20.00</td>
@@ -135,12 +146,15 @@ const CartModal = ({ closeModal }) => {
                 <td>CA $20.00</td>
               </tr>
             </tbody>
-            <form id="checkout" action="/create-checkout-session" method="POST">
+            {/* <form id="checkout" action="/create-checkout-session" method="POST">
               <button id="checkout-btn" type="submit">
                 CHECKOUT
               </button>
-            </form>
-          </div>
+            </form> */}
+            <div onClick={() => {checkout(cart)}} id="checkout">
+            <button id="checkout-btn">CHECKOUT</button>
+            </div>
+          {/* </div> */}
         </div>
       </div>
     </div>
