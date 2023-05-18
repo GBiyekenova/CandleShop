@@ -4,6 +4,8 @@ import axios from "axios";
 // import styled from "styled-components";
 import "../styles/CartModal.css";
 
+import CheckoutButton from "./CheckoutButton";
+
 import { CartContext } from "./CartContext";
 
 const CartModal = ({ closeModal }) => {
@@ -44,15 +46,7 @@ const CartModal = ({ closeModal }) => {
     setCart(currectCart);
   };
 console.log(cart)
-  const checkout = (cart) => {
-    axios.post('/create-checkout-session', {cart}).then((response) => {
-      console.log("SUCCESS", response);
-      window.location.href=(response.data.url);
-    })
-    .catch((err) => {
-      console.log("ERROR", err)
-    })
-  }
+
   return (
     <div
       className="modalBackground"
@@ -151,9 +145,9 @@ console.log(cart)
                 CHECKOUT
               </button>
             </form> */}
-            <div onClick={() => {checkout(cart)}} id="checkout">
-            <button id="checkout-btn">CHECKOUT</button>
-            </div>
+
+            <CheckoutButton />
+
           {/* </div> */}
         </div>
       </div>
