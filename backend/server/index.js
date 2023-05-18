@@ -53,10 +53,9 @@ const YOUR_DOMAIN = 'http://localhost:4242';
 app.post('/create-checkout-session', async (req, res) => {
   const {cart} = req.body;
   console.log("cart", cart)
-  let lineItems = [];
-  
-  cart.map((item) => {
-    lineItems.push({
+ 
+  const line_items = cart.map((item) => {
+      return {
       price_data: {
         currency: 'usd',
         product_data: {
@@ -65,39 +64,61 @@ app.post('/create-checkout-session', async (req, res) => {
         unit_amount: +(item.price.replace(".", "")),
       },
       quantity: item.amount,
-    })
-    return;
+    }
   })
 
   console.log("lineItems");
-  console.log(lineItems);
+  console.log(line_items);
   const session = await stripe.checkout.sessions.create({
-    line_items: lineItems,
-    // [
-    //   {
-    //     price_data: {
-    //       currency: 'usd',
-    //       product_data: {
-    //         name: 'T-shirt',
-    //       },
-    //       unit_amount: 2000,
-    //     },
-    //     quantity: 2,
-    //   },
-    //   {
-    //     price_data: {
-    //       currency: 'usd',
-    //       product_data: {
-    //         name: 'Candle',
-    //       },
-    //       unit_amount: 4050,
-    //     },
-    //     quantity: 3,
-    //   },
-    // ],
+    shipping_address_collection: {
+      allowed_countries: ['US', 'CA'],
+    },
+    shipping_options: [
+      {
+        shipping_rate_data: {
+          type: 'fixed_amount',
+          fixed_amount: {
+            amount: 0,
+            currency: 'usd',
+          },
+          display_name: 'Free shipping',
+          delivery_estimate: {
+            minimum: {
+              unit: 'business_day',
+              value: 5,
+            },
+            maximum: {
+              unit: 'business_day',
+              value: 7,
+            },
+          },
+        },
+      },
+      {
+        shipping_rate_data: {
+          type: 'fixed_amount',
+          fixed_amount: {
+            amount: 1500,
+            currency: 'usd',
+          },
+          display_name: 'Next day air',
+          delivery_estimate: {
+            minimum: {
+              unit: 'business_day',
+              value: 1,
+            },
+            maximum: {
+              unit: 'business_day',
+              value: 1,
+            },
+          },
+        },
+      },
+    ],
+    line_items,
     mode: 'payment',
-    success_url: 'http://localhost:4242/success',
-    cancel_url: 'http://localhost:4242/cancel',
+    success_url: 'http://localhost:3000/checkout-success',//'http://localhost:4242/success',
+    cancel_url: 'http://localhost:3000/candles',
   });
 console.log("session",  session)
   res.json({url: session.url});
