@@ -70,6 +70,7 @@ console.log(cart)
           <div>Products</div>
           <div>Price</div>
           <div>Quantity</div>
+          <div>Sub Total</div>
           <div>Order Summary</div>
         </div>
         <div id="cart-lf-rg">
@@ -100,6 +101,7 @@ console.log(cart)
                           REMOVE
                         </button>
                       </div>
+                      <div id="subtotal">${item.price * item.amount}</div>
                     </div>
                   </div>
                 ))
