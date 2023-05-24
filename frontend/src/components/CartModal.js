@@ -101,7 +101,7 @@ console.log(cart)
                           REMOVE
                         </button>
                       </div>
-                      <div id="subtotal">${item.price * item.amount}</div>
+                      <div id="subtotal">${Number.isInteger(item.price * item.amount) ? (item.price * item.amount).toFixed(2) : item.price * item.amount }</div>
                     </div>
                   </div>
                 ))
