@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import styled from "styled-components";
 import "../styles/CartModal.css";
-
+import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import CheckoutButton from "./CheckoutButton";
 
 import { CartContext } from "./CartContext";
@@ -45,7 +45,7 @@ const CartModal = ({ closeModal }) => {
     });
     setCart(currectCart);
   };
-console.log(cart)
+  console.log(cart);
 
   return (
     <div
@@ -56,7 +56,7 @@ console.log(cart)
     >
       <div className="modalContainer">
         <div id="cart-close">
-          <div>Cart</div>
+          <div style={{fontWeight:"bold", fontSize:"20px", marginBottom: "1em"}}>Shopping Bag</div>
           <button
             id="exit-btn"
             onClick={() => {
@@ -66,13 +66,16 @@ console.log(cart)
             X
           </button>
         </div>
-        <div className="modal-header">
-          <div>Products</div>
-          <div>Price</div>
-          <div>Quantity</div>
-          <div>Sub Total</div>
-          <div>Order Summary</div>
-        </div>
+        {cart && cart.length > 0 && (
+          <div className="modal-header">
+            <div>Products</div>
+            <div>Price</div>
+            <div>Quantity</div>
+            <div>Sub Total</div>
+            <div>Order Summary</div>
+          </div>
+        )}
+
         <div id="cart-lf-rg">
           <div className="left-crt">
             {cart && cart.length > 0
@@ -101,56 +104,58 @@ console.log(cart)
                           REMOVE
                         </button>
                       </div>
-                      <div id="subtotal">${Number.isInteger(item.price * item.amount) ? (item.price * item.amount).toFixed(2) : item.price * item.amount }</div>
+                      <div id="subtotal">
+                        $
+                        {Number.isInteger(item.price * item.amount)
+                          ? (item.price * item.amount).toFixed(2)
+                          : item.price * item.amount}
+                      </div>
                     </div>
                   </div>
                 ))
-              : "Your cart is empty!"}
+              : "Your cart is currently empty!"}
           </div>
-          <div className="right-crt">
-            <div id="delivery-title">
-              <div>
-                <h3>Standard Delivery</h3>
-                <span>FREE</span>
+
+          {cart && cart.length > 0 && (
+            <div className="right-crt">
+            
+              <div id="delivery-info">
+                <div id="delivery-title">
+                  <div>
+                    <h3>Standard Delivery</h3>
+                    <span>FREE</span>
+                  </div>
+                  <div id="delivery-icon"><LocalShippingOutlinedIcon/></div>
+                </div>
+                <div>
+                  <span>
+                    Same Day Delivery, Pickup in Store, and more delivery
+                    options available on Checkout.
+                  </span>
+                </div>
               </div>
-              <div id="delivery-icon">Banner</div>
+              <tbody className="total">
+                <tr>
+                  <th>Sub Total</th>
+                  <td>CA $20.00</td>
+                </tr>
+                <tr>
+                  <th>Shipping</th>
+                  <td>CA $20.00</td>
+                </tr>
+                <tr>
+                  <th>HST Tax</th>
+                  <td>CA $20.00</td>
+                </tr>
+                <tr>
+                  <th>Estimated Total</th>
+                  <td>CA $20.00</td>
+                </tr>
+              </tbody>
+              <CheckoutButton />
+    
             </div>
-            <div>
-              <span>
-                Same Day Delivery, Pickup in Store, and more delivery options
-                available on Checkout.
-              </span>
-            </div>
-          </div>
-
-          {/* <div className="total"> */}
-            <tbody className="total">
-              <tr>
-                <th>Sub Total</th>
-                <td>CA $20.00</td>
-              </tr>
-              <tr>
-                <th>Shipping</th>
-                <td>CA $20.00</td>
-              </tr>
-              <tr>
-                <th>HST Tax</th>
-                <td>CA $20.00</td>
-              </tr>
-              <tr>
-                <th>Estimated Total</th>
-                <td>CA $20.00</td>
-              </tr>
-            </tbody>
-            {/* <form id="checkout" action="/create-checkout-session" method="POST">
-              <button id="checkout-btn" type="submit">
-                CHECKOUT
-              </button>
-            </form> */}
-
-            <CheckoutButton />
-
-          {/* </div> */}
+          )}
         </div>
       </div>
     </div>
