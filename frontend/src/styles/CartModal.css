@@ -1,19 +1,17 @@
 #cart-lf-rg {
-display: inline-flex;
+  display: inline-flex;
 }
 
 #cart-close {
   width: 98%;
-  border: 1px red solid;
+  /* border: 1px red solid; */
   display: inline-flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
 
 .cart-img {
   margin: 2em 1em 1em 1em;
-
 }
 
 #checkout-btn {
@@ -27,9 +25,6 @@ display: inline-flex;
   border-radius: 10px;
   border: 2px solid rgb(255, 255, 255);
   color: white;
-  position:relative;
-  bottom: 20em;
-  right: 1.5em;
 }
 
 #delivery-icon {
@@ -41,9 +36,9 @@ display: inline-flex;
 
 #delivery-title {
   display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 #exit-btn {
@@ -52,7 +47,7 @@ display: inline-flex;
 }
 
 #inc-dec {
-  position:relative;
+  position: relative;
   left: 35em;
   bottom: 5.9em;
   display: inline-flex;
@@ -60,24 +55,23 @@ display: inline-flex;
 }
 .left-crt {
   width: 60%;
-  border: 1px blue solid;
+  /* border: 1px blue solid; */
 }
 
 .lft-img {
   display: inline-flex;
 }
 
-.modal-header { 
+.modal-header {
   padding: 10px;
   display: inline-grid;
   grid-template-columns: 350px 120px 120px 250px 190px;
   /* 400px 120px 400px 190px; */
   grid-column-gap: 60px;
-
 }
 
 .modalBackground {
-  border: 4px blue solid;
+  /* border: 4px blue solid; */
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
@@ -89,9 +83,9 @@ display: inline-flex;
   align-items: center;
   transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
   transition-property: transform;
-    transition-duration: 0.5s;
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition-delay: 0s;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-delay: 0s;
 }
 
 .modalContainer {
@@ -109,71 +103,75 @@ display: inline-flex;
   overflow: auto;
 }
 
-
 #product-info {
-  border: 2px green solid;
+  /* border: 2px green solid; */
   border-collapse: collapse;
-  
 }
 
 #product-name {
   position: relative;
   top: 5em;
   min-width: 20px;
-  border: 2px solid rgb(216, 27, 27);
+  /* border: 2px solid rgb(216, 27, 27); */
   height: 20px;
-  width:auto;
+  width: auto;
   min-width: 10em;
 }
 
 #price {
-  position:relative;
+  position: relative;
   left: 25em;
   bottom: 4.3em;
-  width:5em;
-  border: 3px solid #73AD21;
+  width: 5em;
+  /* border: 3px solid #73ad21; */
 }
 
 .total {
-  border: 2px rgba(0, 0, 0, 0.35) solid;
-  height: 7em;
-  width: 15em;
-  position: relative;
-  top: 14em;
-  right: 10em;
-
+      /* border: 2px rgba(0, 0, 0, 0.35) solid; */
+      /* height: 92px;
+      width: 161px; */
+      /* position: relative; */
+      /* top: 14em; */
+      /* right: 5em; */
+  
+}
+#delivery-info {
+  width: 236px;
+    border: 1px solid #ccc;
+    max-height: 128px;
+    /* position: relative; */
+    /* left: 150px; */
+    padding: 20px;
+    letter-spacing: 0.1em;
+    font-family: "Lars Malone", helvetica, arial, sans-serif;
+    line-height: 15px;
+    color: #1c1c1c;
+    margin: 1.5em;
 }
 .right-crt {
-  width: 20em;
-  border: 1px solid #ccc;
-  max-height: 10em;
-  position: relative;
-  left: 140px;
-  padding: 20px;
-  letter-spacing: 0.1em;
-  font-family: "Lars Malone",helvetica,arial,sans-serif;
-  line-height: 24px;
-  color: #1c1c1c;
+  height: 50em;
+    width: 30em;
+    /* border: solid orange 2px; */
+    margin: 0 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .right-crt h3 {
-  font: bold 12px/12px "Lars Malone",Helvetica,Arial,sans-serif;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding-bottom: 11px;
+  font: bold 12px/12px "Lars Malone", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding-bottom: 11px;
 }
 
 .right-crt span:first-of-type {
   font-size: 11px;
   letter-spacing: 0.1em;
-
 }
 
 #subtotal {
-  position:relative;
+  position: relative;
   left: 41em;
   bottom: 5.9em;
   display: inline-flex;
-
 }
-
-
