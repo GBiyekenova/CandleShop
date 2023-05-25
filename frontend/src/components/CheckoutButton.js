@@ -22,7 +22,7 @@ const CheckoutButton = () => {
       onClick={() => {
         checkout(cart);
       }}
-      id="checkout"
+      // id="checkout"
     >
       <button id="checkout-btn">CHECKOUT</button>
     </div>
