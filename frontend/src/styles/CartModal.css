@@ -1,3 +1,18 @@
+#amount {
+  border: 1px solid skyblue;
+    width: 18px;
+    text-align: center;
+    padding: 4px;
+}
+
+#remove-btn {
+  width: 104px;
+border: none;
+background-color: transparent;
+/* border-bottom: 1px solid black; */
+text-decoration-line: underline;
+text-align: center;
+}
 #cart-lf-rg {
   display: inline-flex;
 }
@@ -47,10 +62,11 @@
 }
 
 #inc-dec {
-  position: relative;
+  /* position: relative;
   left: 35em;
-  bottom: 5.9em;
-  display: inline-flex;
+  bottom: 5.9em; */
+  display: flex;
+  flex-direction: column;
   /* border: 3px solid #73AD21; */
 }
 .left-crt {
@@ -105,12 +121,17 @@
 
 #product-info {
   /* border: 2px green solid; */
-  border-collapse: collapse;
+    border-collapse: collapse;
+    display: inline-grid;
+    grid-template-columns: 410px 168px 206px 95px;
+    align-items: center;
+    /* justify-content: center; */
+    /* border: 1px solid blue; */
 }
 
 #product-name {
   position: relative;
-  top: 5em;
+  top: 4em;
   min-width: 20px;
   /* border: 2px solid rgb(216, 27, 27); */
   height: 20px;
@@ -119,9 +140,9 @@
 }
 
 #price {
-  position: relative;
+  /* position: relative;
   left: 25em;
-  bottom: 4.3em;
+  bottom: 4.3em; */
   width: 5em;
   /* border: 3px solid #73ad21; */
 }
@@ -170,8 +191,8 @@
 }
 
 #subtotal {
-  position: relative;
+  /* position: relative;
   left: 41em;
-  bottom: 5.9em;
+  bottom: 5.9em; */
   display: inline-flex;
 }
