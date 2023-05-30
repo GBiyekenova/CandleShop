@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import BookmarkOutlinedIcon from '@mui/icons-material/BookmarkOutlined';
 
 import { CartContext } from "./CartContext";
 
@@ -98,14 +100,14 @@ function Post() {
                 )}
               </div>
               <div className="btn-btn">
-                <div>
+                <div style={{position: "relative", left: "8em", marginTop: "1.5em"}}>
                   {data.is_favourite ? (
-                    <button className="btn red" onClick={removeFromFav}>
-                      <FavoriteBorderIcon />
+                    <button className="btn no-border" onClick={removeFromFav}>
+                     <span>Wishlist </span><BookmarkOutlinedIcon />
                     </button>
                   ) : (
-                    <button className="btn" onClick={addToFav}>
-                      <FavoriteBorderIcon />
+                    <button className="btn no-border" onClick={addToFav}>
+                      <span>Wishlist </span> <BookmarkBorderOutlinedIcon />
                     </button>
                   )}
                 </div>
