@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 // import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 
 import { CartContext } from "../CartContext";
 
@@ -28,7 +30,7 @@ function Navbar() {
       <div className="float-right">
         <li className="link">
           <Link to="/favourites">
-            <FavoriteBorderIcon />
+            <BookmarkBorderOutlinedIcon />
           </Link>
         </li>
         {/* <li className="link">
@@ -37,11 +39,12 @@ function Navbar() {
       </li> */}
 
         <button
+        style={{border: "none", backgroundColor: "transparent", cursor:"pointer"}}
           onClick={() => {
             setOpenModal(true);
           }}
         >
-          <ShoppingCartIcon />({cartCount ? cartNum : 0})
+          <ShoppingBagOutlinedIcon />({cartCount ? cartNum : 0})
         </button>
         {openModal && <CartModal closeModal={setOpenModal} />}
       </div>
