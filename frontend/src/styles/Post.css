@@ -2,7 +2,18 @@
   width: 200px;
   height: 50px;
   border: 1px solid gray;
-  cursor: pointer;
+  
+  /* font-family: "Whitney SSm A", "Whitney SSm B", sans-serif; */
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  font-size: 15px;
+  text-transform: uppercase;
+  background-color: black;
+  color: white;
+  /* border-radius: 10px; */
+  border: 2px solid rgb(255, 255, 255);
+  /* color: white; */
 }
 #back-btn {
   position: relative;
@@ -11,21 +22,23 @@
 }
 .btn {
   font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 20px;
-  font-size: 15px;
-  text-transform: uppercase;
-  background-color: white;
+  cursor: pointer;
+  /* font-style: normal; */
+  /* font-weight: 600; */
+  /* line-height: 20px; */
+  /* font-size: 15px; */
+  /* text-transform: uppercase; */
+  /* background-color: white; */
   /* border-radius: 10px; */
-  border: 2px solid rgb(255, 255, 255);
+  /* border: 2px solid rgb(255, 255, 255); */
   /* color: white; */
 }
 
 .btn-btn {
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   margin: 2rem 0;
+  
 }
 .images {
   display: flex;
@@ -73,4 +86,11 @@
   /* background-color: red; */
   color: red;
   cursor: pointer;
+}
+
+.no-border {
+  background-color: transparent;
+    border-style: none;
+    display: flex;
+    align-items: center;
 }
