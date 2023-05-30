@@ -34,8 +34,8 @@ ul {
 }
 
 .link a :visited {
-  /* color: greenyellow; */
-  text-decoration: underline;
+  color: greenyellow;
+  text-decoration: none;
 }
 
 .link :active {
