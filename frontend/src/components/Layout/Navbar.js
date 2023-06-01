@@ -18,6 +18,8 @@ function Navbar() {
   let cartCount = cart.map((item) => {
     cartNum += item.amount;
   });
+  console.log(cartCount)
+  console.log(cart)
 
   return (
     <ul>
@@ -44,7 +46,7 @@ function Navbar() {
             setOpenModal(true);
           }}
         >
-          <ShoppingBagOutlinedIcon />({cartCount ? cartNum : 0})
+          <ShoppingBagOutlinedIcon />{cartCount ? cartNum : 0}
         </button>
         {openModal && <CartModal closeModal={setOpenModal} />}
       </div>
