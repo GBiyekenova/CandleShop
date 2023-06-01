@@ -77,6 +77,8 @@ function Post() {
     }
     setCart([...updatedCart]);
   };
+  console.log(itemId)
+  console.log(data)
 
   return (
     <div>
