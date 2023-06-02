@@ -15,11 +15,11 @@
   border: 2px solid rgb(255, 255, 255);
   /* color: white; */
 }
-#back-btn {
+/* #back-btn {
   position: relative;
   left: 2.5vw;
   top: 15vh;
-}
+} */
 .btn {
   font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
   cursor: pointer;
@@ -71,7 +71,7 @@
   /* display: block; */
   width: 100%;
   position: sticky;
-  top: 25%;
+  top: 24%;
   left: 5em;
   bottom: 20%;
   padding-bottom: 30vh;
