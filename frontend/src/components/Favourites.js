@@ -34,12 +34,17 @@ function Favourites() {
 
 
 
-  const removeFromFav = (index) => {
+  const removeFromFav = (itemToRemove) => {
+    let filteredFavs = data.filter((item) => {
+      return item.id !== itemToRemove
+    })
+    console.log("filteredFavs", filteredFavs)
+    
     axios
-      .post("/candles/remove", { itemId: index })
+      .post("/candles/remove", { itemId: itemToRemove })
       .then((response) => {
         console.log(response);
-        setData(response.data.data);
+        setData(filteredFavs);//response.data.data
       })
       .catch((error) => {
         console.log("ERROR", error);
@@ -65,7 +70,7 @@ function Favourites() {
     }
     setCart([...updatedCart]);
   };
-  console.log(data)
+  console.log("favs", data)
 
   return (
     <div style={{padding:"100px 0 0 0"}}>
@@ -75,16 +80,6 @@ function Favourites() {
       <div style={{margin: "3em",  minHeight:"70vh"}}>
         {data && data.length > 0 ? (
           data.map((item, index) => (
-            // <div className="mr-b" key={index} onClick={() => navigate(`/candles/${item.id}`)}>
-            //   <div>
-            //     <img width="350" height="350" src={item.picture1} />
-            //   </div>
-            //   <div className="line">
-            //     <h2 className="ctr">{item.name}</h2>
-            //     <div className="ctr">${item.price}</div>
-            //   </div>
-            // </div>
-
             <div id="product-info2">
               <div
                 className="lft-img2"
