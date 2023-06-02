@@ -4,6 +4,8 @@ import axios from "axios";
 // import styled from "styled-components";
 import "../styles/CartModal.css";
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import CheckoutButton from "./CheckoutButton";
 
 import { CartContext } from "./CartContext";
@@ -45,7 +47,71 @@ const CartModal = ({ closeModal }) => {
     });
     setCart(currectCart);
   };
-  console.log(cart);
+  console.log("cart ",cart);
+  
+  let total=0;
+  const cartInfo = (
+    <div className="left-crt">
+            {cart && cart.length > 0
+              ? cart.map((item, index) => {
+                console.log(item.price * item.amount)
+                total += (item.price * item.amount);
+                return (
+
+                
+                  <div key={index}>
+                    <div>
+                    <div
+                     
+                      id="product-info"
+                    >
+                      <div className="lft-img"
+                       onClick={() => navigate(`/candles/${item.id}`)}>
+                        <img
+                          className="cart-img"
+                          width="100"
+                          height="100"
+                          src={item.picture1}
+                        />
+                        <div id="product-name">{item.name}</div>
+                      </div>
+                      <div id="price">${item.price}</div>
+                      <div id="inc-dec">
+                        {/* className="ctr cart-btn" */}
+                        <ButtonGroup size="small" variant="outlined" aria-label="outlined primary button group">
+                          <Button onClick={() => increase(item.id)}>+</Button>
+                          <div id="amount">{item.amount}</div>
+                          <Button onClick={() => decrease(item.id)}>-</Button>
+                        </ButtonGroup>
+                        <button id="remove-btn" onClick={() => removeFromCart(item)}>
+                          remove
+                        </button> 
+                        {/* <button onClick={() => increase(item.id)}>+</button>
+                        <div>{item.amount}</div>
+                        <button onClick={() => decrease(item.id)}>-</button>
+                        <button onClick={() => removeFromCart(item)}>
+                          REMOVE
+                        </button> */}
+                      </div>
+                      <div id="subtotal">
+                        $
+                        {Number.isInteger(item.price * item.amount)
+                          ? (item.price * item.amount).toFixed(2)
+                          : item.price * item.amount}
+                      </div>
+                      
+                    </div>
+
+                    
+                    </div>
+                  </div>
+                  )
+                })
+              : "Your cart is currently empty!"}
+          </div>
+          );
+          console.log("totallll", total)
+  
 
   return (
     <div
@@ -77,44 +143,8 @@ const CartModal = ({ closeModal }) => {
         )}
 
         <div id="cart-lf-rg">
-          <div className="left-crt">
-            {cart && cart.length > 0
-              ? cart.map((item, index) => (
-                  <div key={index}>
-                    <div
-                      onClick={() => navigate(`/candles/${item.id}`)}
-                      id="product-info"
-                    >
-                      <div className="lft-img">
-                        <img
-                          className="cart-img"
-                          width="100"
-                          height="100"
-                          src={item.picture1}
-                        />
-                        <div id="product-name">{item.name}</div>
-                      </div>
-                      <div id="price">${item.price}</div>
-                      <div id="inc-dec">
-                        {/* className="ctr cart-btn" */}
-                        <button onClick={() => increase(item.id)}>+</button>
-                        <div>{item.amount}</div>
-                        <button onClick={() => decrease(item.id)}>-</button>
-                        <button onClick={() => removeFromCart(item)}>
-                          REMOVE
-                        </button>
-                      </div>
-                      <div id="subtotal">
-                        $
-                        {Number.isInteger(item.price * item.amount)
-                          ? (item.price * item.amount).toFixed(2)
-                          : item.price * item.amount}
-                      </div>
-                    </div>
-                  </div>
-                ))
-              : "Your cart is currently empty!"}
-          </div>
+        {cartInfo}
+          
 
           {cart && cart.length > 0 && (
             <div className="right-crt">
@@ -137,19 +167,15 @@ const CartModal = ({ closeModal }) => {
               <tbody className="total">
                 <tr>
                   <th>Sub Total</th>
-                  <td>CA $20.00</td>
+                  <td>CA ${total.toFixed(2)}</td>
                 </tr>
                 <tr>
                   <th>Shipping</th>
-                  <td>CA $20.00</td>
-                </tr>
-                <tr>
-                  <th>HST Tax</th>
-                  <td>CA $20.00</td>
+                  <td>CA $0.00</td>
                 </tr>
                 <tr>
                   <th>Estimated Total</th>
-                  <td>CA $20.00</td>
+                  <td>CA ${total.toFixed(2)}</td>
                 </tr>
               </tbody>
               <CheckoutButton />
