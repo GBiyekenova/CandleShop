@@ -26,10 +26,12 @@ function AllPostings() {
       });
   }, []);
 
+  console.log("all", data)
+
   return (
-    <div>
+    <div style={{padding:"100px 0 0 0"}}>
       <Navbar />
-      <SearchBox />
+      {/* <SearchBox /> */}
       <div className="card">
         {data &&
           data.map((item, index) => (
