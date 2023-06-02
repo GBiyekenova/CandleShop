@@ -78,7 +78,7 @@ function Post() {
     setCart([...updatedCart]);
   };
   console.log(itemId)
-  console.log(data)
+  console.log("post", data)
 
   return (
     <div>
@@ -87,10 +87,11 @@ function Post() {
         <div className="product-block">
           {/* <div className="product-desc">  */}
           <div style={{ position: "relative", width: "50%" }}>
+            
+            <div className="product-info">
             <a id="back-btn" href="http://localhost:3000/candles">
               Back
             </a>
-            <div className="product-info">
               <h1>{data.name}</h1>
               <p>{data.description}</p>
               <div className="price">${data.price}</div>
