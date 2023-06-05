@@ -10,6 +10,7 @@ import Post from "./components/Post";
 import AllPostings from "./components/AllPostings";
 import { CartProvider } from "./components/CartContext";
 import LandingPage from "./components/LandingPage";
+import CheckoutSuccess from "./components/CheckoutSuccess";
 
 
 import "./App.css";
@@ -26,6 +27,7 @@ function App() {
           {/* <Route path="/cart" element={<CartModal />}></Route> */}
           <Route path="/candles" element={<AllPostings />}></Route>
           <Route path="/favourites" element={<Favourites />}></Route>
+          <Route path="/checkout-success" element={<CheckoutSuccess />}></Route>
 
         </Routes>
       </Router>
