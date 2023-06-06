@@ -21,7 +21,7 @@ function Footer() {
           <div className="contact-info header">Contact Information:</div>
           <div>Location: 10 Willow Park</div>
           <div>Phone number: 8707373737</div>
-          <div>email: candles@candlecorp.com</div>
+          <div>Email: candles@candlecorp.com</div>
         </div>
       </div>
       <div className="cl">
