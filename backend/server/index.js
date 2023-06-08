@@ -125,7 +125,7 @@ console.log("session",  session)
   // res.redirect(303, session.url);
 });
 
-// Get a candle by Id
+// Get candle info by Id
 app.get("/candles/:id", (req, res) => {
   console.log("GET /candles/ITEMID");
   const itemID = Number(req.params.id);
