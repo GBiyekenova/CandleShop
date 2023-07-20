@@ -83,6 +83,7 @@ function Post() {
   return (
     <div>
       <Navbar />
+      <div style={{minHeight: "100vh"}}>
       {data && (
         <div className="product-block">
           {/* <div className="product-desc">  */}
@@ -132,6 +133,7 @@ function Post() {
           </div>
         </div>
       )}
+      </div>
       <Footer />
     </div>
   );
