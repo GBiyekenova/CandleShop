@@ -5,7 +5,7 @@ import { CartContext } from "./CartContext";
 
 const checkout = (cart) => {
   axios
-    .post("/create-checkout-session", { cart })
+    .post(`${process.env.REACT_APP_BACKEND}/create-checkout-session`, { cart })
     .then((response) => {
       console.log("SUCCESS", response);
       window.location.href = response.data.url;

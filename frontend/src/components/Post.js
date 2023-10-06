@@ -35,7 +35,7 @@ function Post() {
 
   const addToFav = () => {
     axios
-      .post(`/candles/itemId`, { itemId })
+      .post(`${process.env.REACT_APP_BACKEND}/candles/itemId`, { itemId })
       .then((response) => {
         console.log("response");
         console.log(response);
@@ -48,7 +48,7 @@ function Post() {
 
   const removeFromFav = () => {
     axios
-      .post("/candles/remove", { itemId })
+      .post("${process.env.REACT_APP_BACKEND}/candles/remove", { itemId })
       .then((response) => {
         console.log(response);
         setData(response.data.data);

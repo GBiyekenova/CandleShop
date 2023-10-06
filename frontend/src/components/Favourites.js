@@ -20,7 +20,7 @@ function Favourites() {
 
   useEffect(() => {
     axios
-      .get(`/favourites`)
+      .get(`${process.env.REACT_APP_BACKEND}/favourites`)
       .then((response) => {
         console.log("response");
         console.log(response.data.data);
@@ -41,7 +41,7 @@ function Favourites() {
     console.log("filteredFavs", filteredFavs)
     
     axios
-      .post("/candles/remove", { itemId: itemToRemove })
+      .post(`${process.env.REACT_APP_BACKEND}/candles/remove`, { itemId: itemToRemove })
       .then((response) => {
         console.log(response);
         setData(filteredFavs);//response.data.data
