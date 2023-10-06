@@ -15,7 +15,7 @@ function AllPostings() {
 
   useEffect(() => {
     axios
-      .get(`/candles`)
+      .get(`${process.env.REACT_APP_BACKEND}/candles`)
       .then((response) => {
         console.log("response");
         console.log(response.data.data);

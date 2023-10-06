@@ -22,7 +22,7 @@ function Post() {
 
   useEffect(() => {
     axios
-      .get(`/candles/${itemId}`)
+      .get(`${process.env.REACT_APP_BACKEND}/candles/${itemId}`)
       .then((response) => {
         console.log("response");
         console.log(response.data.data);
