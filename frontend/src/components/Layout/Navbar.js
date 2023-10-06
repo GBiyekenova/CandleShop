@@ -30,11 +30,11 @@ function Navbar() {
         <Link to="/candles">All Products</Link>
       </li>
       <div className="float-right">
-        <li className="link">
+        {/* <li className="link">
           <Link to="/favourites">
             <BookmarkBorderOutlinedIcon />
           </Link>
-        </li>
+        </li> */}
         {/* <li className="link">
       
         <Link to="/cart"> <ShoppingCartIcon />({cartCount ? cartNum : 0})</Link>
