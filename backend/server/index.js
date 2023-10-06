@@ -1,7 +1,7 @@
 //if (process.env.NODE_ENV !== "production") {
 require("dotenv").config();
 //}
-import cors from "cors";
+const cors = require("cors");
 const express = require("express");
 
 const pg = require("pg");
