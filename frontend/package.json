@@ -50,7 +50,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://api.render.com/deploy/srv-ckffct8eksbs73bakhp0?key=9bix0Hr5kts", 
+  "proxy": "https://candlshop.onrender.com/", 
   "devDependencies": {
     "@types/styled-components": "^5.1.25"
   }
