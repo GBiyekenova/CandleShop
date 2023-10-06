@@ -1,12 +1,18 @@
 //if (process.env.NODE_ENV !== "production") {
 require("dotenv").config();
 //}
+import cors from "cors";
 const express = require("express");
+
 const pg = require("pg");
 const PORT = process.env.PORT || 3001;
 
 const app = express();
+app.use(cors({
+  origin:"*"
+}));
 app.use(express.json());
+
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
@@ -14,11 +20,18 @@ const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
 const stripe = require("stripe")(stripeSecretKey);
 
 /* connect to DBeaver Database */
-const conString =
+const conString = 
   process.env.ELEPHANTSQL_URL ||
   "postgres://uppxlpjk:ic5WpkEt-1NjAu3AedGlt96QZKrQ6Y-x@castor.db.elephantsql.com/uppxlpjk";
 
 const client = new pg.Client(conString);
+
+// const client = new pg.Client({
+//   host: 'postgres://uppxlpjk:ic5WpkEt-1NjAu3AedGlt96QZKrQ6Y-x@castor.db.elephantsql.com/uppxlpjk',
+//   // port: 5432,
+//   user: 'uppxlpjk',
+//   password: 'ic5WpkEt-1NjAu3AedGlt96QZKrQ6Y-x'
+// })
 
 client.connect(function (err) {
   console.log("connected to database");
