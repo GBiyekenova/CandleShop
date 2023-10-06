@@ -48,7 +48,7 @@ function Post() {
 
   const removeFromFav = () => {
     axios
-      .post("${process.env.REACT_APP_BACKEND}/candles/remove", { itemId })
+      .post(`${process.env.REACT_APP_BACKEND}/candles/remove`, { itemId })
       .then((response) => {
         console.log(response);
         setData(response.data.data);
